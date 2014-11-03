@@ -1,0 +1,160 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang=
+"en">
+<head>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+<title>1001-natt.no</title>
+<link href="../Design/1001nattStyle.css" rel="stylesheet" type=
+"text/css" />
+<link rel="shortcut icon" href="../Design/Images/favicon.png" />
+</head>
+<body>
+<form id="form1" runat="server">
+<div id="topsection"></div>
+<div id="maincontainer">
+<div id="contentcolumn">
+
+<!-- ----------CONTENT START-------------------------- -->
+
+
+<!-- ---------- CONTENT END-------------------------- -->
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    
+    <div class="mainDynamic">
+
+    </div>
+    
+    <div class="mainDynamic">
+
+    </div>
+    
+    <div class="mainDynamic">
+
+    </div>
+    
+    </asp:ContentPlaceHolder>
+</div> 
+
+
+
+<div id="leftcolumn">
+<div id="logo"><a href="../Main/Index.aspx"><img src="../Design/Images/banner2.jpg"
+alt="1001natt" /></a></div>
+<div class="hr"></div>
+<div id="navcontainer">
+
+<ul id="navlist">
+
+<!-- ---------- MENU START-------------------------- -->
+
+<asp:LoginView ID="LoginView1" runat="server">        
+        
+        <RoleGroups>
+        <asp:RoleGroup Roles="Administrator">
+        <ContentTemplate>
+               Velkommen, 
+                    <asp:LoginName ID="LoginName2" runat="server" />!
+                    <p></p>      
+                    <asp:LoginStatus ID="LoginStatus2" runat="server" LoginText="Logg inn" 
+                        LogoutText="Logg ut" />
+                       <li><a href="../Administrator/AdministratorPanel.aspx">Administrator Panel</a></li>
+        </ContentTemplate>
+        </asp:RoleGroup>
+        
+        <asp:RoleGroup Roles="Super Moderator">
+        <ContentTemplate>
+               Velkommen, 
+                    <asp:LoginName ID="LoginName2" runat="server" />!
+                    <p></p>      
+                    <asp:LoginStatus ID="LoginStatus2" runat="server" LoginText="Logg inn" 
+                        LogoutText="Logg ut" />
+                       <li><a href="../SuperModerator/ActiveWatch.aspx">Active Watch</a></li>
+        </ContentTemplate>
+        </asp:RoleGroup>
+            
+            <asp:RoleGroup Roles="User">
+                <ContentTemplate>
+                    Velkommen, 
+                    <asp:LoginName ID="LoginName2" runat="server" />!
+                    <p></p>      
+                    <asp:LoginStatus ID="LoginStatus2" runat="server" LoginText="Logg inn" 
+                        LogoutText="Logg ut" />
+                </ContentTemplate>
+            </asp:RoleGroup>
+        </RoleGroups>
+        
+        <AnonymousTemplate>
+            Velkommen, gjest!
+            <p></p>
+            <asp:LoginStatus ID="LoginStatus2" runat="server" LoginText="Logg inn" 
+                LogoutText="Logg ut" />
+        </AnonymousTemplate>
+</asp:LoginView>
+
+<li><a href="../Main/Index.aspx">Forside</a></li>
+
+<asp:LoginView ID="LoginView2" runat="server">
+        <LoggedInTemplate>
+        </LoggedInTemplate>
+        <RoleGroups>
+            <asp:RoleGroup Roles="User">
+                <ContentTemplate>
+               <li><a href="../User/MyPage.aspx">Min side</a></li>
+               <li><a href="../User/ShoppingBasket.aspx">Handlevogn</a></li>
+                </ContentTemplate>
+            </asp:RoleGroup>
+        </RoleGroups>
+</asp:LoginView>
+
+<li><a href="../Main/Menu.aspx">Meny</a></li>
+
+<asp:LoginView ID="LoginView4" runat="server">
+        <LoggedInTemplate>
+        </LoggedInTemplate>
+        <RoleGroups>
+            <asp:RoleGroup Roles="User">
+                <ContentTemplate>
+               <li><a href="../User/TableReservation.aspx">Bord reservering</a></li>
+                </ContentTemplate>
+            </asp:RoleGroup>
+        </RoleGroups>
+</asp:LoginView>
+
+<li><a href="../Main/OpeningTimes.aspx">&Aring;pningstider</a></li>
+<li><a href="../Main/Contact.aspx">Kontakt</a></li>
+
+<asp:LoginView ID="LoginView3" runat="server">
+        <LoggedInTemplate>
+        </LoggedInTemplate>
+                <AnonymousTemplate>
+                <li><a href="../Main/Login.aspx">Logg inn</a></li>
+                <li><a href="../Main/Register.aspx">Registrer deg</a></li>
+                </AnonymousTemplate>
+</asp:LoginView>
+
+<!-- ---------- MENU END-------------------------- -->
+
+</ul>
+</div>
+<div class="hr"></div>
+<div class="hr2"></div>
+<div class="welcometext">
+<h2>Velkommen til 1001 Natt</h2>
+..restaurant, caf&eacute; &amp; take-away er et nytt tilbud i
+Mandal. Profilen vil v&aelig;re hjemmelaget arabisk mat som
+serveres i et koselig lokale vegg-i-vegg med Kroen.
+</div>
+<div class="hr"></div>
+
+</div>
+<div style="clear:both;"></div>
+</div>
+<div id="footer"></div>
+</form>
+</body>
+</html>
+
